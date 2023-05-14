@@ -1,5 +1,8 @@
-package com.teachmeskills.springbooteshop.constants;
+package com.teachmeskills.springbooteshop.utils;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class Constant {
     public static final String PROFILE_PAGE = "profile";
     public static final String HOME_PAGE = "home";

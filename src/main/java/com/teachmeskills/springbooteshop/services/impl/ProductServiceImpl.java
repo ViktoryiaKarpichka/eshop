@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.services.impl;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.PRODUCT_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.PRODUCT_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.Product;
 import com.teachmeskills.springbooteshop.repositories.ProductRepository;
@@ -18,6 +18,7 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
+    @Override
     public List<Product> getProductsByCategoryId(int categoryId) {
         return productRepository.getProductsByCategoryId(categoryId);
     }

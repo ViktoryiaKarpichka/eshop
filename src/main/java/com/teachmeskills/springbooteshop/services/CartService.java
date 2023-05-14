@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.services;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.CART_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.CART_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.Cart;
 import com.teachmeskills.springbooteshop.entities.Product;
