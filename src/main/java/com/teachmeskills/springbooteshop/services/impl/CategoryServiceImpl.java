@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.services.impl;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.CATEGORY_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.CATEGORY_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.Category;
 import com.teachmeskills.springbooteshop.entities.Product;
@@ -21,6 +21,7 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final ProductService productService;
 
+    @Override
     public List<Category> getCategories() {
         return categoryRepository.getCategories();
     }
@@ -29,7 +30,7 @@ public class CategoryServiceImpl implements CategoryService {
     public ModelAndView getCategoryData(int id) {
         ModelMap model = new ModelMap();
         Category category = categoryRepository.getCategoryById(id);
-        if (Optional.ofNullable(category).isPresent()) {
+        if (category != null) {
             List<Product> products = productService.getProductsByCategoryId(category.getId());
             category.setProductList(products);
             model.addAttribute("category", category);

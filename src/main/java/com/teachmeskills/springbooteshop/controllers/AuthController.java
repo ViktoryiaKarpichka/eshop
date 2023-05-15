@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.controllers;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.SIGN_IN_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.SIGN_IN_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.User;
 import com.teachmeskills.springbooteshop.exceptions.AuthorizationException;
@@ -33,8 +33,6 @@ public class AuthController {
    @PostMapping
    public ModelAndView login(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, ModelAndView modelAndView) throws AuthorizationException {
        if (bindingResult.hasErrors()) {
-          // populateError("email", modelAndView, bindingResult);
-          // populateError("password", modelAndView, bindingResult);
            modelAndView.setViewName(SIGN_IN_PAGE);
            return modelAndView;
        }
@@ -45,11 +43,4 @@ public class AuthController {
     public User setUpUserForm() {
         return new User();
     }
-
-   /* private void populateError(String field, ModelAndView modelAndView, BindingResult bindingResult) {
-        FieldError fieldError = bindingResult.getFieldError(field);
-        if (fieldError != null) {
-            modelAndView.addObject(field + "Error", fieldError.getDefaultMessage());
-        }
-    }*/
 }

@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.services.impl;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.HOME_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.HOME_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.Category;
 import com.teachmeskills.springbooteshop.entities.User;
@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService {
             modelAndView.addAllObjects(modelMap);
         } else {
             throw new AuthorizationException("User is not authorized! Please, try again!");
-            // modelAndView.setViewName(SIGN_IN_PAGE.getPath());
         }
         return modelAndView;
     }

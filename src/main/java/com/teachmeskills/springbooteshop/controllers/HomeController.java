@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.controllers;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.HOME_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.HOME_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.Category;
 import com.teachmeskills.springbooteshop.entities.User;
@@ -27,7 +27,7 @@ public class HomeController {
 
     @GetMapping
     public ModelAndView openHomePage(@SessionAttribute("user") User user) {
-        System.out.println("User with email: " + user.getEmail() + " and password: " + user.getPassword() + " successfully logged in!");
+        log.info("User with email: " + user.getEmail() +  "successfully logged in!");
         ModelMap model = new ModelMap();
         List<Category> categoriesList = categoryService.getCategories();
         model.addAttribute("categories", categoriesList);

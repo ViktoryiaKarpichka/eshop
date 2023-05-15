@@ -1,6 +1,6 @@
 package com.teachmeskills.springbooteshop.controllers;
 
-import static com.teachmeskills.springbooteshop.constants.Constant.SIGN_IN_PAGE;
+import static com.teachmeskills.springbooteshop.utils.Constant.SIGN_IN_PAGE;
 
 import com.teachmeskills.springbooteshop.entities.User;
 import org.springframework.ui.ModelMap;
