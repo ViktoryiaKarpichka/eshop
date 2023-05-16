@@ -5,20 +5,19 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-@Setter
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@EqualsAndHashCode
-public class User implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
+public class User extends BaseEntity implements Serializable {
 
-    private Long id;
     private String name;
     private String surname;
     @Size(min = 6, max = 30, message = "Password must be between 6 and 30 characters")
@@ -28,8 +27,8 @@ public class User implements Serializable {
     @NotEmpty(message = "Email must not be empty")
     @Email(message = "Email must be valid")
     private String email;
-    private String birthday;
-    private int balance;
+    private LocalDate birthday;
+    private BigDecimal balance;
 
     public User(String email, String password) {
         this.email = email;
