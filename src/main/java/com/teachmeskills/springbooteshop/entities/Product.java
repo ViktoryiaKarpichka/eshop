@@ -7,15 +7,16 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(callSuper = true)
+@SuperBuilder
 @ToString
-public class Product implements Serializable {
+public class Product extends BaseEntity implements Serializable {
 
-    private int id;
     private String imageName;
     private String name;
     private String description;
