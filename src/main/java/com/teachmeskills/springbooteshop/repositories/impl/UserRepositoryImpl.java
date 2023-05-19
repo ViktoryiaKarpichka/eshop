@@ -3,9 +3,7 @@ package com.teachmeskills.springbooteshop.repositories.impl;
 import com.teachmeskills.springbooteshop.entities.Product;
 import com.teachmeskills.springbooteshop.entities.User;
 import com.teachmeskills.springbooteshop.repositories.UserRepository;
-import java.util.ArrayList;
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

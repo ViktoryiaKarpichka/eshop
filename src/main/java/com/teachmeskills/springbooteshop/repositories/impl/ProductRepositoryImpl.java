@@ -4,10 +4,7 @@ package com.teachmeskills.springbooteshop.repositories.impl;
 import com.teachmeskills.springbooteshop.entities.Category;
 import com.teachmeskills.springbooteshop.entities.Product;
 import com.teachmeskills.springbooteshop.repositories.ProductRepository;
-
-import java.util.Collections;
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

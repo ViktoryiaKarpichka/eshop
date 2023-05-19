@@ -3,7 +3,6 @@ package com.teachmeskills.springbooteshop.repositories.impl;
 import com.teachmeskills.springbooteshop.entities.Category;
 import com.teachmeskills.springbooteshop.repositories.CategoryRepository;
 import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;

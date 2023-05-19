@@ -3,11 +3,11 @@ package com.teachmeskills.springbooteshop.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
-@Getter
+@Data
 public class Cart implements Serializable {
 
     private List<Product> products = new ArrayList<>();
