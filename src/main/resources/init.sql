@@ -33,7 +33,7 @@ create table if not exists users
     password varchar(50)    not null,
     birthday date           not null,
     balance  numeric(15, 2) not null
-    );
+);
 
 alter table users
     owner to postgres;
@@ -87,4 +87,5 @@ VALUES ('apple.jpeg ', 'Смартфон Apple iPhone 13 128GB (темная н�
         'зеркальная камера, байонет Canon EF-S, матрица APS-C (1.6 crop) 18 Мп, с объективом F3.5-5.6 18-55 мм, Wi-Fi ',
         1449, 6),
        ('cameraNikon.jpeg ', 'Зеркальный фотоаппарат Nikon D5600 Kit 18-55mm AF-P DX VR ',
+
         'Зеркальный фотоаппарат Nikon D5600 Kit 18-55mm AF-P DX VR ', 2550, 6);

@@ -1,5 +1,6 @@
 package com.teachmeskills.springbooteshop.repositories.impl;
 
+import com.teachmeskills.springbooteshop.entities.Product;
 import com.teachmeskills.springbooteshop.entities.User;
 import com.teachmeskills.springbooteshop.repositories.UserRepository;
 import java.util.List;
