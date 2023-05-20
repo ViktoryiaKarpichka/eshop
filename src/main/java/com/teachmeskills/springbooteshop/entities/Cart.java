@@ -4,34 +4,29 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 public class Cart implements Serializable {
 
     private List<Product> products = new ArrayList<>();
-    private int totalPrice = 0;
-  /*  private Map<Integer, Product> products;
-    public Cart() {
-        this.products = new HashMap<>();
-    }*/
 
-    public void addProduct(Product myProduct) {
-        products.add(myProduct);
-       /* products.put(product.getId(), product);
-        totalPrice += product.getPrice();*/
+    public void addProduct(Product productId) {
+        products.add(productId);
     }
 
-    public void deleteProduct(Product myProduct) {
-        products.remove(myProduct);
-        /*Product product = products.get(productId);
-        products.remove(productId);
-        totalPrice -= product.getPrice();*/
+    // не получается реализовать этот метод. Продукт не удаляется. В консоли видно,что делается один селект.
+    //Или надо создавать отдельно базу данных cart. Помогите разобраться, плиз
+    public void deleteProduct(Product productId) {
+          products.remove(productId);
     }
-   /* public List<Product> getProducts() {
-        return new ArrayList<>(products.values());
-    }*/
+      /*  Product product = new Product();
+      for (int i = 0; i < products.size(); i++) {
+            product = products.get(i);
+            if (product.equals(myProduct)) {
+                products.remove(product);
+            }
+        }*/
+
 
     public void clear() {
         products.clear();

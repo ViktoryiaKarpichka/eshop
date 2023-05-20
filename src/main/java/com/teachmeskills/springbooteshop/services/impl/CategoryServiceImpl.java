@@ -8,7 +8,6 @@ import com.teachmeskills.springbooteshop.repositories.CategoryRepository;
 import com.teachmeskills.springbooteshop.services.CategoryService;
 import com.teachmeskills.springbooteshop.services.ProductService;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -23,13 +22,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> getCategories() {
-        return categoryRepository.getCategories();
+        return categoryRepository.findAll();
     }
 
     @Override
     public ModelAndView getCategoryData(int id) {
         ModelMap model = new ModelMap();
-        Category category = categoryRepository.getCategoryById(id);
+        Category category = categoryRepository.findCategoryById(id);
         if (category != null) {
             List<Product> products = productService.getProductsByCategoryId(category.getId());
             category.setProductList(products);
