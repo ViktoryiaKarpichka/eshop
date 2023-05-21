@@ -2,11 +2,14 @@ package com.teachmeskills.springbooteshop.repositories;
 
 import com.teachmeskills.springbooteshop.entities.Category;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CategoryRepository {
+@Repository
+public interface CategoryRepository extends JpaRepository<Category,Integer> {
 
-    List<Category> getCategories();
+    List<Category> findAll();
 
-    Category getCategoryById(int id);
+    Category findCategoryById(int id);
 
 }

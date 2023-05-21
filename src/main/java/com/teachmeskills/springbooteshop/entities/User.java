@@ -1,5 +1,7 @@
 package com.teachmeskills.springbooteshop.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -18,6 +20,8 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
+@Entity
+@Table(name = "users")
 public class User extends BaseEntity implements Serializable {
 
     private String name;

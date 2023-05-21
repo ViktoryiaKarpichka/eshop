@@ -20,13 +20,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProductsByCategoryId(int categoryId) {
-        return productRepository.getProductsByCategoryId(categoryId);
+        return productRepository.findAllByCategory_Id(categoryId);
     }
 
     @Override
     public ModelAndView getProductData(int id) {
         ModelMap modelMap = new ModelMap();
-        Product product = productRepository.getProductById(id);
+        Product product = productRepository.findById(id);
         if (Optional.ofNullable(product).isPresent()) {
             modelMap.addAttribute("product", product);
         }
