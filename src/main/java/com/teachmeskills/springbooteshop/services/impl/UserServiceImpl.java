@@ -2,7 +2,7 @@ package com.teachmeskills.springbooteshop.services.impl;
 
 import static com.teachmeskills.springbooteshop.utils.Constant.HOME_PAGE;
 
-import com.teachmeskills.springbooteshop.entities.Category;
+import com.teachmeskills.springbooteshop.dto.CategoryDto;
 import com.teachmeskills.springbooteshop.entities.User;
 import com.teachmeskills.springbooteshop.exceptions.AuthorizationException;
 import com.teachmeskills.springbooteshop.repositories.UserRepository;
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         User loggedUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if (Optional.ofNullable(loggedUser).isPresent()) {
             ModelMap modelMap = new ModelMap();
-            List<Category> categoriesList = categoryService.getCategories();
+            List<CategoryDto> categoriesList = categoryService.getCategories();
             modelMap.addAttribute("categories", categoriesList);
             modelAndView.setViewName(HOME_PAGE);
             modelAndView.addAllObjects(modelMap);
@@ -42,4 +42,5 @@ public class UserServiceImpl implements UserService {
     public List<User> read() {
         return userRepository.findAll();
     }
+
 }

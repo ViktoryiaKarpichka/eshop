@@ -14,19 +14,23 @@ public class Cart implements Serializable {
         products.add(productId);
     }
 
-    // не получается реализовать этот метод. Продукт не удаляется. В консоли видно,что делается один селект.
-    //Или надо создавать отдельно базу данных cart. Помогите разобраться, плиз
     public void deleteProduct(Product productId) {
-          products.remove(productId);
-    }
-      /*  Product product = new Product();
-      for (int i = 0; i < products.size(); i++) {
-            product = products.get(i);
-            if (product.equals(myProduct)) {
+         products.remove(productId);
+      /*  Iterator<Product> iterator = products.iterator();
+        while(iterator.hasNext()) {
+            Product next = iterator.next();
+            if (next.getId()==productId.getId()){
+                iterator.remove();
+            }
+
+        }*/
+       /* for (int i = 0; i < products.size(); i++) {
+          Product product = products.get(i);
+            if (product.getId()==productId.getId()) {
                 products.remove(product);
             }
         }*/
-
+    }
 
     public void clear() {
         products.clear();

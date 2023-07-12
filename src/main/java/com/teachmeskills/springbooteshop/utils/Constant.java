@@ -11,6 +11,7 @@ public class Constant {
     public static final String PRODUCT_PAGE = "product";
     public static final String CATEGORY_PAGE = "category";
     public static final String ERROR_PAGE = "error";
+    public static final String REGISTRATION_PAGE = "registration";
     public static final String LOGIN = "username";
     public static final String PASSWORD = "password";
     public static final String COMMAND = "command";
