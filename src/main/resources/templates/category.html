@@ -9,7 +9,7 @@
 
 <h2 th:text="${category.name}"></h2>
 
-<div class="container-fluid mb-4" th:each="p : ${category.productList}">
+<div class="container-fluid mb-4" th:each="p : ${category.products}">
     <div class="card w-25 m-1" type="product">
         <div class="card-body">
             <a th:href="@{'/product/' + ${p.id}}">

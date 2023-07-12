@@ -3,23 +3,23 @@ create table categories
 (
     id        serial primary key,
     name      varchar(50)  not null,
-    imageName varchar(100) not null
+    image_name varchar(100) not null
 );
 
 alter table categories
     owner to postgres;
 
-INSERT INTO categories (id, name, imagename)
+INSERT INTO categories (id, name, image_name)
 VALUES (1, 'Mobile phones', 'mobile.jpeg');
-INSERT INTO categories (id, name, imagename)
+INSERT INTO categories (id, name, image_name)
 VALUES (2, 'Laptops', 'laptop.jpeg');
-INSERT INTO categories (id, name, imagename)
+INSERT INTO categories (id, name, image_name)
 VALUES (3, 'GPS Navigators', 'jps_nav.jpeg');
-INSERT INTO categories (id, name, imagename)
+INSERT INTO categories (id, name, image_name)
 VALUES (4, 'Fridges', 'fridge.jpeg');
-INSERT INTO categories (id, name, imagename)
+INSERT INTO categories (id, name, image_name)
 VALUES (5, 'Cars', 'car.jpeg');
-INSERT INTO categories (id, name, imagename)
+INSERT INTO categories (id, name, image_name)
 VALUES (6, 'Cameras', 'camera.jpeg');
 
 
@@ -33,6 +33,7 @@ create table if not exists users
     password varchar(50)    not null,
     birthday date           not null,
     balance  numeric(15, 2) not null
+
 );
 
 alter table users
@@ -87,5 +88,60 @@ VALUES ('apple.jpeg ', 'Смартфон Apple iPhone 13 128GB (темная н�
         'зеркальная камера, байонет Canon EF-S, матрица APS-C (1.6 crop) 18 Мп, с объективом F3.5-5.6 18-55 мм, Wi-Fi ',
         1449, 6),
        ('cameraNikon.jpeg ', 'Зеркальный фотоаппарат Nikon D5600 Kit 18-55mm AF-P DX VR ',
-
         'Зеркальный фотоаппарат Nikon D5600 Kit 18-55mm AF-P DX VR ', 2550, 6);
+
+drop table if exists orders;
+create table if not exists orders
+(
+    id        serial primary key,
+    date      date   not null,
+    price     numeric(10, 2) not null,
+    user_id   int            not null
+);
+
+alter table orders
+    owner to postgres;
+
+
+drop table if exists orders_products;
+create table if not exists orders_products
+(
+    order_id int not null,
+    product_id int not null,
+    primary key
+(
+    order_id,
+    product_id
+)
+    );
+
+alter table orders_products
+    add constraint fk_orders_products_order_id_orders_id
+        foreign key (order_id)
+            references orders (id);
+alter table orders_products
+    add constraint fk_orders_products_product_id_products_id
+        foreign key (product_id)
+            references products (id)
+            on delete cascade
+            on update cascade;
+
+
+create table roles
+(
+    id   bigserial
+            primary key,
+    role varchar(20) not null
+);
+
+insert into roles (role)
+values ('ROLE_ADMIN'),
+       ('ROLE_USER');
+
+alter table users
+    add role_id bigint ;
+
+alter table users
+    add constraint users_roles_id_fk
+        foreign key (role_id) references roles
+            on update cascade on delete cascade;

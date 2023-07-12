@@ -1,12 +1,12 @@
 package com.teachmeskills.springbooteshop.services;
 
-import com.teachmeskills.springbooteshop.entities.Product;
+import com.teachmeskills.springbooteshop.dto.ProductDto;
 import java.util.List;
 import org.springframework.web.servlet.ModelAndView;
 
 public interface ProductService {
 
-    List<Product> getProductsByCategoryId(int categoryId);
+    List<ProductDto> getProductsByCategoryId(int categoryId);
 
-    public ModelAndView getProductData(int id);
+    ModelAndView getProductData(int id);
 }
